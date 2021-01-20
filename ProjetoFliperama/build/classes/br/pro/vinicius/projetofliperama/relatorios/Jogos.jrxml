@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b0081ef2-c58f-40f0-a500-e2b73488f974">
+	<property name="ireport.zoom" value="1.7715610000000013"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from v_jogos;]]>
+	</queryString>
+	<field name="idjogo" class="java.lang.Long"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="desenvolvedora" class="java.lang.String"/>
+	<field name="anolanc" class="java.lang.Integer"/>
+	<field name="plataforma" class="java.lang.String"/>
+	<field name="genero" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="20" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="397" y="0" width="158" height="20" backcolor="#FFFFFF" uuid="c68ed44c-6135-45d0-befc-68ea27aa03ae"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="397" height="20" backcolor="#009999" uuid="b2933123-379a-45df-ac85-4d577b998cbe"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empréstimos Arcadium]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="45" height="20" uuid="2397d7b6-3d86-41b3-bdfd-8a6398a5171e"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="0" width="136" height="20" uuid="86e7a6d2-da9f-4805-8597-730349c6d658"/>
+				<text><![CDATA[Nome do jogos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="181" y="0" width="120" height="20" uuid="f86142e1-1584-45b1-b058-cd97120229a7"/>
+				<text><![CDATA[Desenvolvedora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="301" y="0" width="64" height="20" uuid="ba77ab0b-52de-4bd0-be4e-3e5b4e367641"/>
+				<text><![CDATA[Lançamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="0" width="90" height="20" uuid="dd5f15d5-d087-4bfb-8712-6ccd06b565b5"/>
+				<text><![CDATA[Plataforma]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="0" width="100" height="20" uuid="9e7b5f07-b551-4869-9bcc-189c29a37a7c"/>
+				<text><![CDATA[Genêro]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="45" height="20" uuid="b4c334af-7441-4009-bfc5-045612fdd171"/>
+				<textFieldExpression><![CDATA[$F{idjogo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="45" y="0" width="136" height="20" uuid="38413d97-4514-42b8-9676-b6f2d0cc4b12"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="181" y="0" width="120" height="20" uuid="f1db8742-34e6-46ac-94e1-80f84714df33"/>
+				<textFieldExpression><![CDATA[$F{desenvolvedora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="301" y="0" width="64" height="20" uuid="917638cb-91e0-4af6-811c-9b747ea22ef3"/>
+				<textFieldExpression><![CDATA[$F{anolanc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="0" width="90" height="20" uuid="0bdf2881-f7ec-4ad9-b7b2-4a4ddafc438a"/>
+				<textFieldExpression><![CDATA[$F{plataforma}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="48fd9bc9-5d40-4930-a804-6ee6870022a4"/>
+				<textFieldExpression><![CDATA[$F{genero}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="34" width="40" height="20" uuid="7f150b75-553b-449e-bf39-b56594928567"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="341" y="34" width="174" height="20" uuid="3bc949e8-8479-4bb7-845d-c6987900690c"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+"de"]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
